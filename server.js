@@ -4,6 +4,11 @@ const app = express()
 module.exports = app
 
 app.get('/response', (req, res) => {
+
+  if (req.query.key !== process.env.KEY) {
+    res.status(403).send('Access denied.')
+  }
+
   const nodemailer = require('nodemailer')
 
   // create reusable transporter object using the default SMTP transport
