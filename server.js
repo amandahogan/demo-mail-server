@@ -24,8 +24,8 @@ app.get('/response', (req, res) => {
   let mailOptions = {
       from: '"Fred Foo 👻" <foo@blurdybloop.com>', // sender address
       to: process.env.NOTIFIED_EMAIL, // list of receivers
-      subject: 'Hello ✔', // Subject line
-      text: 'Hello world ?', // plain text body
+      subject: req.query.userId, // Subject line
+      text: req.query.proId, // plain text body
       html: `<p>${JSON.stringify(req.query)}</p>` // html body
   }
 
