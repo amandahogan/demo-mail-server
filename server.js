@@ -4,8 +4,6 @@ const app = express()
 module.exports = app
 
 app.get('/response', (req, res) => {
-  console.log(req.headers)
-
   if (req.query.key !== process.env.KEY) {
     res.status(403).send('Access denied.')
   }
@@ -23,7 +21,7 @@ app.get('/response', (req, res) => {
 
   // setup email data with unicode symbols
   let mailOptions = {
-    from: '"Fred Foo 👻" <foo@blurdybloop.com>', // sender address
+    from: '"Kristen Wonch 👻" <foo@blurdybloop.com>', // sender address
     to: process.env.NOTIFIED_EMAIL, // list of receivers
     subject: req.query.userId, // Subject line
     text: req.query.proId, // plain text body
